@@ -169,8 +169,8 @@ public class Board {
 <span class="fc bfc" id="L169" title="All 2 branches covered.">        if (!cell.isOpened()) {</span>
 <span class="fc" id="L170">            return IconEnum.ICON_NOT_VISITED.getIcon();</span>
         }
-<span class="fc bfc" id="L172" title="All 2 branches covered.">        if (cell.isMineInside()) {</span>
-<span class="fc" id="L173">            return IconEnum.ICON_IS_BOMB.getIcon();</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">        if (cell.isMineInside()) {</span>
+<span class="nc" id="L173">            return IconEnum.ICON_IS_BOMB.getIcon();</span>
         }
 <span class="fc" id="L175">        int neighbourCount = cell.getNumber();</span>
 <span class="fc bfc" id="L176" title="All 2 branches covered.">        if (neighbourCount == 0) {</span>

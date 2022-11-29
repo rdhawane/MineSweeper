@@ -18,7 +18,7 @@ The player wins when all non-bomb cells are exposed. The game also allows the pl
 ## How to play (console view)
 
 ```
-java -jar .\Minesweeper-1.0.jar
+java -jar .\minesweeper-1.0.jar
 
 Enter count of rows (>3): <countOfRows>
 Enter count of columns (>3): <countOfColumns>
@@ -40,7 +40,7 @@ Please type game difficulty level in Capital Letters from below option
 
 Example:
 ```
-java -jar .\Minesweeper-1.0.jar
+java -jar .\minesweeper-1.0.jar
 
 Enter count of rows (>3): 12
 Enter count of columns (>3): 12

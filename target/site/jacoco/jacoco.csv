@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Minesweeper Game,com.application.minesweeper.model,Board,6,685,2,56,2,98,3,41,1,14
+Minesweeper Game,com.application.minesweeper.model,Board,9,682,3,55,3,97,4,40,1,14
 Minesweeper Game,com.application.minesweeper.model,Game,37,13,0,0,4,4,7,4,7,4
 Minesweeper Game,com.application.minesweeper.model,Game.GameBuilder,45,0,0,0,1,0,7,0,7,0
 Minesweeper Game,com.application.minesweeper.model,Cell,12,50,0,2,0,12,3,13,3,12
