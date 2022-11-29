@@ -65,7 +65,8 @@ Please type game difficulty level in Capital Letters from below option
 10 | ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  · 
 11 | ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  · 
 
-Command: 
+Command: help
+
 The following commands are available:
  - open <row> <col>     Use to open an unvisited cell
  - o <row> <col>        Use to open an unvisited cell

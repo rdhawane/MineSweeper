@@ -28,39 +28,54 @@ class BoardTest {
     @Test
     void shouldReturnGameLostWhenUserOpenMineCell() {
 
+        //GIVEN
         Game game = new Game();
         Cell cell = board.getCell(1, 1);
         cell.setMineInside(true);
         game.setBoard(board);
+
+        //WHEN
         GameState gameState = board.exposeCell(1, 1);
         gameState.updateBoardAsPerState(game);
+
+        //THEN
         assertTrue(gameState instanceof GameLostState);
     }
 
     @Test
     void shouldReturnGameWonWhenUserOpenAllCellsWithoutMines() {
 
+        //GIVEN
         Game game = new Game();
         Cell cell = board.getCell(3, 3);
         cell.setMineInside(false);
         cell.setNumber(1);
         board.setUnexposedCellsRemaining(1);
         game.setBoard(board);
+
+        //WHEN
         GameState gameState = board.exposeCell(3, 3);
         gameState.updateBoardAsPerState(game);
+
+        //THEN
         assertTrue(gameState instanceof GameWonState);
     }
 
     @Test
     void shouldReturnGameInProgressStateWhenAllCellsWithoutMinesAreNotOpen() {
 
+        //GIVEN
         Game game = new Game();
         Cell cell = board.getCell(0, 4);
         cell.setMineInside(false);
         cell.setNumber(0);
         game.setBoard(board);
         GameState gameState = board.exposeCell(0, 4);
+
+        //WHEN
         gameState.updateBoardAsPerState(game);
+
+        //THEN
         assertTrue(gameState instanceof GameInProgressState);
     }
 

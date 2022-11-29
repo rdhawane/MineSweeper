@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="minesweeper.model.BoardTest" time="0.386" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="minesweeper.model.BoardTest" time="0.721" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final2\Solution4\Minesweeper\target\test-classes;C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final2\Solution4\Minesweeper\target\classes;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.0\junit-jupiter-engine-5.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0\junit-platform-engine-1.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0\junit-platform-commons-1.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.0\junit-jupiter-api-5.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-junit-jupiter\2.22.0\mockito-junit-jupiter-2.22.0.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-core\2.22.0\mockito-core-2.22.0.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy\1.8.21\byte-buddy-1.8.21.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy-agent\1.8.21\byte-buddy-agent-1.8.21.jar;C:\Users\inrdhaw\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\Users\inrdhaw\.m2\repository\org\projectlombok\lombok\1.18.20\lombok-1.18.20.jar;"/>
+    <property name="java.class.path" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final3\MineSweeper\target\test-classes;C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final3\MineSweeper\target\classes;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.0\junit-jupiter-engine-5.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-engine\1.9.0\junit-platform-engine-1.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-commons\1.9.0\junit-platform-commons-1.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.0\junit-jupiter-api-5.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-junit-jupiter\4.8.0\mockito-junit-jupiter-4.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\inrdhaw\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\inrdhaw\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -17,9 +17,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.15.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\inrdhaw\AppData\Local\Temp\surefire1270732462118480882\surefirebooter-20221129212334832_3.jar C:\Users\inrdhaw\AppData\Local\Temp\surefire1270732462118480882 2022-11-29T21-23-34_191-jvmRun1 surefire-20221129212334832_1tmp surefire_0-20221129212334832_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\inrdhaw\AppData\Local\Temp\surefire15996817384293322912\surefirebooter-20221129222526422_3.jar C:\Users\inrdhaw\AppData\Local\Temp\surefire15996817384293322912 2022-11-29T22-25-25_691-jvmRun1 surefire-20221129222526422_1tmp surefire_0-20221129222526422_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final2\Solution4\Minesweeper\target\test-classes;C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final2\Solution4\Minesweeper\target\classes;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.0\junit-jupiter-engine-5.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-engine\1.8.0\junit-platform-engine-1.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-commons\1.8.0\junit-platform-commons-1.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.0\junit-jupiter-api-5.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-junit-jupiter\2.22.0\mockito-junit-jupiter-2.22.0.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-core\2.22.0\mockito-core-2.22.0.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy\1.8.21\byte-buddy-1.8.21.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy-agent\1.8.21\byte-buddy-agent-1.8.21.jar;C:\Users\inrdhaw\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\Users\inrdhaw\.m2\repository\org\projectlombok\lombok\1.18.20\lombok-1.18.20.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final3\MineSweeper\target\test-classes;C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final3\MineSweeper\target\classes;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.0\junit-jupiter-engine-5.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-engine\1.9.0\junit-platform-engine-1.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\platform\junit-platform-commons\1.9.0\junit-platform-commons-1.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.0\junit-jupiter-api-5.9.0.jar;C:\Users\inrdhaw\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-junit-jupiter\4.8.0\mockito-junit-jupiter-4.8.0.jar;C:\Users\inrdhaw\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\inrdhaw\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\inrdhaw\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\inrdhaw\.m2\repository\org\projectlombok\lombok\1.18.24\lombok-1.18.24.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\inrdhaw"/>
     <property name="user.language" value="en"/>
@@ -27,13 +27,13 @@
     <property name="java.version.date" value="2022-04-22"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-11.0.15.1"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final2\Solution4\Minesweeper"/>
+    <property name="basedir" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final3\MineSweeper"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\inrdhaw\AppData\Local\Temp\surefire1270732462118480882\surefirebooter-20221129212334832_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\inrdhaw\AppData\Local\Temp\surefire15996817384293322912\surefirebooter-20221129222526422_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.15.1+2-LTS-10"/>
@@ -48,7 +48,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\inrdhaw\AppData\Local\Temp\"/>
     <property name="java.version" value="11.0.15.1"/>
-    <property name="user.dir" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final2\Solution4\Minesweeper"/>
+    <property name="user.dir" value="C:\Rameshwar\data\NL\experis\Minesweeper\Rameshwar\final3\MineSweeper"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldReturnGameLostWhenUserOpenMineCell" classname="minesweeper.model.BoardTest" time="0.342">
+  <testcase name="shouldReturnGameLostWhenUserOpenMineCell" classname="minesweeper.model.BoardTest" time="0.661">
     <system-out><![CDATA[   | 0  1  2  3  4  5 
 ---|------------------
  0 | .  .  .  .  .  . 
@@ -76,10 +76,10 @@ Sorry. You've lost!
 
 ]]></system-out>
   </testcase>
-  <testcase name="shouldReturnGameInProgressStateWhenAllCellsWithoutMinesAreNotOpen" classname="minesweeper.model.BoardTest" time="0.004">
+  <testcase name="shouldReturnGameInProgressStateWhenAllCellsWithoutMinesAreNotOpen" classname="minesweeper.model.BoardTest" time="0.005">
     <system-out><![CDATA[   | 0  1  2  3  4  5 
 ---|------------------
- 0 |                X 
+ 0 | .  .  .  .     X 
  1 | .  .  .  .  .  . 
  2 | .  .  .  .  .  . 
  3 | .  .  .  .  .  . 
@@ -88,8 +88,8 @@ Sorry. You've lost!
 
 ]]></system-out>
   </testcase>
-  <testcase name="shouldMarkCellAsMineWhenUserEnterMarkAction" classname="minesweeper.model.BoardTest" time="0.002"/>
-  <testcase name="shouldReturnGameWonWhenUserOpenAllCellsWithoutMines" classname="minesweeper.model.BoardTest" time="0.011">
+  <testcase name="shouldMarkCellAsMineWhenUserEnterMarkAction" classname="minesweeper.model.BoardTest" time="0.001"/>
+  <testcase name="shouldReturnGameWonWhenUserOpenAllCellsWithoutMines" classname="minesweeper.model.BoardTest" time="0.021">
     <system-out><![CDATA[   | 0  1  2  3  4  5 
 ---|------------------
  0 | .  .  .  .  .  . 

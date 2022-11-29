@@ -1,18 +1,18 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Minesweeper,com.application.minesweeper.model,Board,6,685,3,55,2,98,4,40,1,14
-Minesweeper,com.application.minesweeper.model,Game,37,13,0,0,4,4,7,4,7,4
-Minesweeper,com.application.minesweeper.model,Game.GameBuilder,45,0,0,0,1,0,7,0,7,0
-Minesweeper,com.application.minesweeper.model,Cell,12,50,0,2,0,12,3,13,3,12
-Minesweeper,com.application.minesweeper.view.gui,GUIView,4,0,0,0,2,0,2,0,2,0
-Minesweeper,com.application.minesweeper,MineSweeperApplication,19,0,2,0,7,0,4,0,3,0
-Minesweeper,com.application.minesweeper.state,GameInProgressState,0,7,0,0,0,3,0,2,0,2
-Minesweeper,com.application.minesweeper.state,GameLostState,22,24,5,1,4,8,3,2,0,2
-Minesweeper,com.application.minesweeper.state,GameWonState,0,18,0,0,0,7,0,2,0,2
-Minesweeper,com.application.minesweeper.view.console.useraction,UserActionFactory,13,93,6,16,3,20,6,8,1,2
-Minesweeper,com.application.minesweeper.view.console.useraction,UserActionHelp,0,27,0,0,0,9,0,2,0,2
-Minesweeper,com.application.minesweeper.view.console.useraction,UserActionOpen,0,23,0,0,0,7,0,4,0,4
-Minesweeper,com.application.minesweeper.view.console.useraction,UserActionMark,0,23,0,0,0,7,0,4,0,4
-Minesweeper,com.application.minesweeper.view.console.useraction,UserActionInvalid,0,10,0,0,0,3,0,2,0,2
-Minesweeper,com.application.minesweeper.view.console,ConsoleView,165,0,10,0,47,0,13,0,8,0
-Minesweeper,com.application.minesweeper.util,GameDifficulty,0,48,0,0,0,8,0,3,0,3
-Minesweeper,com.application.minesweeper.util,IconEnum,0,48,0,0,0,8,0,3,0,3
+Minesweeper Game,com.application.minesweeper.model,Board,6,685,2,56,2,98,3,41,1,14
+Minesweeper Game,com.application.minesweeper.model,Game,37,13,0,0,4,4,7,4,7,4
+Minesweeper Game,com.application.minesweeper.model,Game.GameBuilder,45,0,0,0,1,0,7,0,7,0
+Minesweeper Game,com.application.minesweeper.model,Cell,12,50,0,2,0,12,3,13,3,12
+Minesweeper Game,com.application.minesweeper.view.gui,GUIView,4,0,0,0,2,0,2,0,2,0
+Minesweeper Game,com.application.minesweeper,MineSweeperApplication,19,0,2,0,7,0,4,0,3,0
+Minesweeper Game,com.application.minesweeper.state,GameInProgressState,0,7,0,0,0,3,0,2,0,2
+Minesweeper Game,com.application.minesweeper.state,GameLostState,22,24,5,1,4,8,3,2,0,2
+Minesweeper Game,com.application.minesweeper.state,GameWonState,0,18,0,0,0,7,0,2,0,2
+Minesweeper Game,com.application.minesweeper.view.console.useraction,UserActionFactory,13,93,6,16,3,20,6,8,1,2
+Minesweeper Game,com.application.minesweeper.view.console.useraction,UserActionHelp,0,27,0,0,0,9,0,2,0,2
+Minesweeper Game,com.application.minesweeper.view.console.useraction,UserActionOpen,0,23,0,0,0,7,0,4,0,4
+Minesweeper Game,com.application.minesweeper.view.console.useraction,UserActionMark,0,23,0,0,0,7,0,4,0,4
+Minesweeper Game,com.application.minesweeper.view.console.useraction,UserActionInvalid,0,10,0,0,0,3,0,2,0,2
+Minesweeper Game,com.application.minesweeper.view.console,ConsoleView,165,0,10,0,47,0,13,0,8,0
+Minesweeper Game,com.application.minesweeper.util,GameDifficulty,0,48,0,0,0,8,0,3,0,3
+Minesweeper Game,com.application.minesweeper.util,IconEnum,0,48,0,0,0,8,0,3,0,3
