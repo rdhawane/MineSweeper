@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsoleView.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Minesweeper</a> &gt; <a href="index.source.html" class="el_package">com.application.minesweeper.view.console</a> &gt; <span class="el_source">ConsoleView.java</span></div><h1>ConsoleView.java</h1><pre class="source lang-java linenums">package com.application.minesweeper.view.console;
+
+import com.application.minesweeper.state.GameLostState;
+import com.application.minesweeper.view.common.GameView;
+import com.application.minesweeper.model.Board;
+import com.application.minesweeper.model.Game;
+import com.application.minesweeper.state.GameState;
+import com.application.minesweeper.state.GameWonState;
+import com.application.minesweeper.util.GameDifficulty;
+import com.application.minesweeper.view.console.useraction.IUserAction;
+import com.application.minesweeper.view.console.useraction.UserActionFactory;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ConsoleView implements GameView {
+
+    private final Scanner inputScanner;
+    private Game game;
+    private int rows;
+    private int columns;
+
+    private GameDifficulty difficultyLevel;
+<span class="nc" id="L24">    public ConsoleView() {</span>
+<span class="nc" id="L25">        inputScanner = new Scanner(System.in);</span>
+<span class="nc" id="L26">        game = new Game();</span>
+<span class="nc" id="L27">    }</span>
+
+    @Override
+    public void startGame() {
+<span class="nc" id="L31">        gameInitialSetup();</span>
+        do {
+<span class="nc" id="L33">            performUserActions();</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        } while (playAgain());</span>
+<span class="nc" id="L35">        System.out.println(&quot;Goodbye!&quot;);</span>
+<span class="nc" id="L36">    }</span>
+
+    private void gameInitialSetup() {
+<span class="nc" id="L39">        System.out.println();</span>
+<span class="nc" id="L40">        System.out.print(&quot;Enter count of rows (&gt;3):&quot;);</span>
+<span class="nc" id="L41">        this.rows = Integer.parseInt(inputScanner.nextLine());</span>
+<span class="nc" id="L42">        System.out.print(&quot;Enter count of columns (&gt;3):&quot;);</span>
+<span class="nc" id="L43">        this.columns = this.rows = Integer.parseInt(inputScanner.nextLine());</span>
+<span class="nc" id="L44">        System.out.print(&quot;Please type game difficulty level in Capital Letters from below option \n EASY \n MEDIUM \n HARD\n&quot;);</span>
+<span class="nc" id="L45">        System.out.println();</span>
+<span class="nc" id="L46">        difficultyLevel = GameDifficulty.valueOf(inputScanner.nextLine());</span>
+<span class="nc" id="L47">        createGameBoard();</span>
+<span class="nc" id="L48">    }</span>
+
+    private void createGameBoard(){
+<span class="nc" id="L51">        game = Game.builder()</span>
+<span class="nc" id="L52">                .board(new Board(rows, columns, difficultyLevel))</span>
+<span class="nc" id="L53">                .boardRows(rows)</span>
+<span class="nc" id="L54">                .boardColumns(columns)</span>
+<span class="nc" id="L55">                .build();</span>
+<span class="nc" id="L56">        game.getBoard().printBoard();</span>
+<span class="nc" id="L57">    }</span>
+
+    private boolean playAgain() {
+<span class="nc" id="L60">        String playAgain = getStringFromUser(&quot;Play again (y/n)? &quot;, new String[] { &quot;y&quot;, &quot;n&quot; });</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if(&quot;y&quot;.equals(playAgain)){</span>
+<span class="nc" id="L62">            createGameBoard();</span>
+<span class="nc" id="L63">            return true;</span>
+        }
+<span class="nc" id="L65">        return false;</span>
+    }
+
+    private String getStringFromUser(final String prompt, final String[] validInputs) {
+        String input;
+        while (true) {
+<span class="nc" id="L71">            System.out.print(prompt);</span>
+<span class="nc" id="L72">            input = inputScanner.nextLine();</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">            if (Arrays.asList(validInputs).contains(input)) {</span>
+<span class="nc" id="L74">                break;</span>
+            }
+        }
+<span class="nc" id="L77">        return input;</span>
+    }
+
+    private void performUserActions() {
+        IUserAction userAction;
+        while (true) {
+<span class="nc" id="L83">            userAction = getUserAction();</span>
+<span class="nc" id="L84">            GameState gameState = userAction.perform(game);</span>
+<span class="nc bnc" id="L85" title="All 4 branches missed.">            if (gameState instanceof GameWonState || gameState instanceof GameLostState) {</span>
+<span class="nc" id="L86">                gameState.updateBoardAsPerState(game);</span>
+<span class="nc" id="L87">                break;</span>
+            }
+<span class="nc" id="L89">            gameState.updateBoardAsPerState(game);</span>
+<span class="nc" id="L90">        }</span>
+<span class="nc" id="L91">    }</span>
+
+    private IUserAction getUserAction() {
+<span class="nc" id="L94">        System.out.print(&quot;Command: &quot;);</span>
+<span class="nc" id="L95">        String userInput = inputScanner.nextLine();</span>
+<span class="nc" id="L96">        return UserActionFactory.getUserAction(userInput, rows, columns);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

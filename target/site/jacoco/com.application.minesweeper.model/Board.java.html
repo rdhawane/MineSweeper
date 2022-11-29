@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Board.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Minesweeper</a> &gt; <a href="index.source.html" class="el_package">com.application.minesweeper.model</a> &gt; <span class="el_source">Board.java</span></div><h1>Board.java</h1><pre class="source lang-java linenums">package com.application.minesweeper.model;
+
+import com.application.minesweeper.state.GameInProgressState;
+import com.application.minesweeper.state.GameLostState;
+import com.application.minesweeper.state.GameState;
+import com.application.minesweeper.state.GameWonState;
+import com.application.minesweeper.util.GameDifficulty;
+import com.application.minesweeper.util.IconEnum;
+import lombok.NoArgsConstructor;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
+
+<span class="nc" id="L15">@NoArgsConstructor</span>
+public class Board {
+<span class="fc" id="L17">    private static final Random random = new Random();</span>
+    private int rows;
+    private int columns;
+    private Cell[][] cells;
+    private int unexposedCellsRemaining;
+
+<span class="fc" id="L23">    public Board(int rows, int columns, GameDifficulty difficultyLevel) {</span>
+<span class="fc" id="L24">        this.rows = rows;</span>
+<span class="fc" id="L25">        this.columns = columns;</span>
+<span class="fc" id="L26">        int minesCount = getMines(rows * columns, difficultyLevel);</span>
+<span class="fc" id="L27">        Cell[] bombs = new Cell[minesCount];</span>
+
+<span class="fc" id="L29">        initializeBoard(minesCount, bombs);</span>
+<span class="fc" id="L30">        setNumberedCells(bombs);</span>
+
+<span class="fc" id="L32">        unexposedCellsRemaining = rows * columns - minesCount;</span>
+<span class="fc" id="L33">    }</span>
+
+    private void initializeBoard(int minesCount, Cell[] bombs) {
+<span class="fc" id="L36">        this.cells = new Cell[rows][columns];</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int r = 0; r &lt; rows; r++) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            for (int c = 0; c &lt; columns; c++) {</span>
+<span class="fc" id="L39">                cells[r][c] = new Cell(r, c);</span>
+            }
+        }
+<span class="fc" id="L42">        this.cells = addMinesInBoard(cells, minesCount, bombs);</span>
+<span class="fc" id="L43">    }</span>
+
+    private Cell[][] addMinesInBoard(Cell[][] board, final int minesCount, Cell[] bombs) {
+<span class="fc" id="L46">        int numberOfMinesSet = 0;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        while (numberOfMinesSet &lt; minesCount) {</span>
+<span class="fc" id="L48">            int rowMines = random.nextInt(board.length);</span>
+<span class="fc" id="L49">            int colMines = random.nextInt(board[0].length);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (!board[rowMines][colMines].isMineInside()) {</span>
+<span class="fc" id="L51">                board[rowMines][colMines].setMineInside(true);</span>
+<span class="fc" id="L52">                bombs[numberOfMinesSet] = cells[rowMines][colMines];</span>
+<span class="fc" id="L53">                numberOfMinesSet++;</span>
+            }
+<span class="fc" id="L55">        }</span>
+<span class="fc" id="L56">        return board;</span>
+    }
+
+    private void setNumberedCells(Cell[] bombs) {
+        // set all the numbered cells depending on how the bombs are placed on the board
+<span class="fc" id="L61">        int[][] directions = { // Offsets of 8 surrounding cells</span>
+                { -1, -1 }, { -1, 0 }, { -1, 1 },
+                { 0, -1 }, { 0, 1 },
+                { 1, -1 }, { 1, 0 }, { 1, 1 }
+        };
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (Cell bomb : bombs) {</span>
+<span class="fc" id="L67">            int row = bomb.getRow();</span>
+<span class="fc" id="L68">            int col = bomb.getColumn();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">            for (int[] direction : directions) {</span>
+<span class="fc" id="L70">                int r = row + direction[0];</span>
+<span class="fc" id="L71">                int c = col + direction[1];</span>
+<span class="fc bfc" id="L72" title="All 8 branches covered.">                if (r &gt;= 0 &amp;&amp; r &lt; rows &amp;&amp; c &gt;= 0 &amp;&amp; c &lt; columns) {</span>
+<span class="fc" id="L73">                    cells[r][c].setNumber(cells[r][c].getNumber() + 1);</span>
+                }
+            }
+        }
+<span class="fc" id="L77">    }</span>
+
+    public GameState exposeCell(int row, int col) {
+<span class="fc" id="L80">        Cell cell = getCell(row, col);</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (cell.isMineInside()) {</span>
+<span class="fc" id="L82">            return new GameLostState();</span>
+        }
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (!cell.isOpened()) {</span>
+<span class="fc" id="L85">            cell.setOpened(true);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            if (cell.isBlank()) {</span>
+<span class="fc" id="L87">                expandBlank(cell);</span>
+            }
+<span class="fc" id="L89">            unexposedCellsRemaining--;</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            if (unexposedCellsRemaining == 0) {</span>
+<span class="fc" id="L91">                return new GameWonState();</span>
+            }
+        }
+<span class="fc" id="L94">        return new GameInProgressState();</span>
+    }
+
+    public GameState markCellAsMine(int row, int col) {
+<span class="fc" id="L98">        Cell cell = getCell(row, col);</span>
+<span class="fc" id="L99">        cell.setMarkedAsMineByUser(true);</span>
+<span class="fc" id="L100">        return new GameInProgressState();</span>
+    }
+
+    public Cell getCell(int row, int col) {
+<span class="fc" id="L104">        return cells[row][col];</span>
+    }
+
+    private void expandBlank(Cell cell) {
+
+<span class="fc" id="L109">        int[][] directions = {</span>
+                { -1, -1 }, { -1, 0 }, { -1, 1 },
+                { 0, -1 }, { 0, 1 },
+                { 1, -1 }, { 1, 0 }, { 1, 1 }
+        };
+
+<span class="fc" id="L115">        Queue&lt;Cell&gt; toExplore = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L116">        toExplore.add(cell);</span>
+
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        while (!toExplore.isEmpty()) {</span>
+<span class="fc" id="L119">            Cell current = toExplore.remove();</span>
+
+<span class="fc bfc" id="L121" title="All 2 branches covered.">            for (int[] direction : directions) {</span>
+<span class="fc" id="L122">                int r = current.getRow() + direction[0];</span>
+<span class="fc" id="L123">                int c = current.getColumn() + direction[1];</span>
+
+<span class="pc bpc" id="L125" title="1 of 8 branches missed.">                if (r &gt;= 0 &amp;&amp; r &lt; rows &amp;&amp; c &gt;= 0 &amp;&amp; c &lt; columns) {</span>
+<span class="fc" id="L126">                    Cell neighbor = cells[r][c];</span>
+
+<span class="fc bfc" id="L128" title="All 4 branches covered.">                    if (neighbor.isBlank() &amp;&amp; !neighbor.isOpened()) {</span>
+<span class="fc" id="L129">                        neighbor.setOpened(true);</span>
+<span class="fc" id="L130">                        unexposedCellsRemaining--;</span>
+<span class="fc" id="L131">                        toExplore.add(neighbor);</span>
+                    }
+                }
+            }
+<span class="fc" id="L135">        }</span>
+<span class="fc" id="L136">    }</span>
+
+    public void printBoard() {
+<span class="fc" id="L139">        printHeader();</span>
+
+<span class="fc bfc" id="L141" title="All 2 branches covered.">        for (int row = 0; row &lt; rows; row++) {</span>
+<span class="fc" id="L142">            String index = String.format(&quot;%1$2s&quot;, row);</span>
+<span class="fc" id="L143">            System.out.print(index + &quot; |&quot;);</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">            for (int col = 0; col &lt; columns; col++) {</span>
+<span class="fc" id="L145">                System.out.print(getIcon(row, col));</span>
+            }
+<span class="fc" id="L147">            System.out.println();</span>
+        }
+<span class="fc" id="L149">        System.out.println();</span>
+<span class="fc" id="L150">    }</span>
+
+    private void printHeader() {
+<span class="fc" id="L153">        String headerCols = &quot;   |&quot;;</span>
+<span class="fc" id="L154">        String headerLine = &quot;---|&quot;;</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">        for (int i = 0; i &lt; columns; i++) {</span>
+<span class="fc" id="L156">            String index = String.format(&quot;%1$2s&quot;, i);</span>
+<span class="fc" id="L157">            headerCols = headerCols.concat(index + &quot; &quot;);</span>
+<span class="fc" id="L158">            headerLine = headerLine.concat(&quot;---&quot;);</span>
+        }
+<span class="fc" id="L160">        System.out.println(headerCols);</span>
+<span class="fc" id="L161">        System.out.println(headerLine);</span>
+<span class="fc" id="L162">    }</span>
+
+    private String getIcon(final int row, final int col) {
+<span class="fc" id="L165">        Cell cell = getCell(row, col);</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (cell.isMarkedAsMineByUser()) {</span>
+<span class="nc" id="L167">            return IconEnum.ICON_IS_MARKED_AS_BOMB.getIcon();</span>
+        }
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        if (!cell.isOpened()) {</span>
+<span class="fc" id="L170">            return IconEnum.ICON_NOT_VISITED.getIcon();</span>
+        }
+<span class="fc bfc" id="L172" title="All 2 branches covered.">        if (cell.isMineInside()) {</span>
+<span class="fc" id="L173">            return IconEnum.ICON_IS_BOMB.getIcon();</span>
+        }
+<span class="fc" id="L175">        int neighbourCount = cell.getNumber();</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">        if (neighbourCount == 0) {</span>
+<span class="fc" id="L177">            return &quot;   &quot;;</span>
+        } else {
+<span class="fc" id="L179">            return &quot; &quot; + neighbourCount + &quot; &quot;;</span>
+        }
+    }
+
+    private int getMines(final int cells, final GameDifficulty difficulty) {
+<span class="fc" id="L184">        return (int) (difficulty.getPercentage() * cells);</span>
+    }
+
+    public void setUnexposedCellsRemaining(int cellCount) {
+<span class="fc" id="L188">        this.unexposedCellsRemaining = cellCount;</span>
+<span class="fc" id="L189">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

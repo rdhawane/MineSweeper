@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserActionHelp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Minesweeper</a> &gt; <a href="index.source.html" class="el_package">com.application.minesweeper.view.console.useraction</a> &gt; <span class="el_source">UserActionHelp.java</span></div><h1>UserActionHelp.java</h1><pre class="source lang-java linenums">package com.application.minesweeper.view.console.useraction;
+
+import com.application.minesweeper.state.GameState;
+import com.application.minesweeper.model.Game;
+import com.application.minesweeper.state.GameInProgressState;
+
+<span class="fc" id="L7">public final class UserActionHelp implements IUserAction {</span>
+
+    @Override
+    public GameState perform(Game game) {
+<span class="fc" id="L11">        System.out.println(&quot;The following commands are available:&quot;);</span>
+<span class="fc" id="L12">        System.out.println(&quot; - open &lt;row&gt; &lt;col&gt;     Use to open an unvisited cell&quot;);</span>
+<span class="fc" id="L13">        System.out.println(&quot; - o &lt;row&gt; &lt;col&gt;        Use to open an unvisited cell&quot;);</span>
+<span class="fc" id="L14">        System.out.println(&quot; - mark &lt;row&gt; &lt;col&gt;     Use to mark an unvisited cell as a mine&quot;);</span>
+<span class="fc" id="L15">        System.out.println(&quot; - m &lt;row&gt; &lt;col&gt;     Use to mark an unvisited cell as a mine&quot;);</span>
+<span class="fc" id="L16">        System.out.println(&quot; - exit&quot;);</span>
+<span class="fc" id="L17">        System.out.println();</span>
+<span class="fc" id="L18">        return new GameInProgressState();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
