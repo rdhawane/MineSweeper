@@ -40,7 +40,7 @@ public class ConsoleView implements GameView {
         System.out.print("Enter count of rows (>3):");
         this.rows = Integer.parseInt(inputScanner.nextLine());
         System.out.print("Enter count of columns (>3):");
-        this.columns = this.rows = Integer.parseInt(inputScanner.nextLine());
+        this.columns = Integer.parseInt(inputScanner.nextLine());
         System.out.print("Please type game difficulty level in Capital Letters from below option \n EASY \n MEDIUM \n HARD\n");
         System.out.println();
         difficultyLevel = GameDifficulty.valueOf(inputScanner.nextLine());
